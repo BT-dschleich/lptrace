@@ -22,10 +22,10 @@ trace_fn = """def __lptrace_trace_calls__(frame, event, arg):
 __LPTRACE_FIFO_NAME__ = "%s"
 __LPTRACE_OUTPUT_FIFO__ = None
 import os
-import sys ; sys.settrace(__lptrace_trace_calls__)"""
+import threading ; threading.settrace(__lptrace_trace_calls__)"""
 
 
-untrace_fn = """import sys ; sys.settrace(None)"""
+untrace_fn = """import threading ; threading.settrace(None)"""
 
 
 def runfile(pid, script):
